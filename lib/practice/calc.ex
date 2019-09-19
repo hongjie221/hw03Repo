@@ -8,11 +8,14 @@ defmodule Practice.Calc do
     # This should handle +,-,*,/ with order of operations,
     # but doesn't need to handle parens.
     expr
-    |> String.split(~r/\s+/)
-    |> hd
-    |> parse_float
-    |> :math.sqrt()
-
+    |> Code.eval_string()
+    |> Tuple.to_list()
+    |> List.first()
+    #|> String.split(~r/\s+/)
+    #|> hd
+    #|> parse_float
+    #|> :math.sqrt()
+    
     # Hint:
     # expr
     # |> split
